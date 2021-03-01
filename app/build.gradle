@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
@@ -73,9 +74,21 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
-
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+    implementation "androidx.compose.runtime:runtime:${compose_version}"
     testImplementation 'junit:junit:4.13.2'
+
+    implementation "androidx.core:core-ktx:${supportLibrary_version}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${ktxSupport_version}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${ktxSupport_version}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle_versions}"
+
+    implementation "com.github.skydoves:landscapist-glide:1.1.6"
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
