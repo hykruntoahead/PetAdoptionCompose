@@ -1,7 +1,6 @@
 package com.example.androiddevchallenge.data
 
-
-//Models
+// Models
 data class Adoption(
     val title: String,
     val author: String,
@@ -10,8 +9,7 @@ data class Adoption(
     val detailInfoLink: String? = null
 )
 
-
-//Methods
+// Methods
 fun getAdoptionList() = listOf(
     Adoption(
         "雪纳瑞找主人，领养-杭州宠物领养",
@@ -91,5 +89,5 @@ fun getAdoptionList() = listOf(
         "一个月的小奶狗寻找爱心领养",
         "https://img.chonganjia.cn/diary/adopt/202102/22/202102221646552439.png",
         "http://www.lazyer.net/adopt/66879"
-    ),
+    )
 )

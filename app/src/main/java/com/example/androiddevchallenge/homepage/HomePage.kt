@@ -1,11 +1,19 @@
 package com.example.androiddevchallenge.homepage
 
-
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -19,7 +27,6 @@ import androidx.lifecycle.LiveData
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Adoption
 
-
 @Composable
 fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
     Scaffold(
@@ -27,7 +34,7 @@ fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
         topBar = {
             TopAppBar(
                 title = { Text(text = LocalContext.current.getString(R.string.pet_adoptions)) },
-                elevation = 8.dp,
+                elevation = 8.dp
             )
         },
         content = {
@@ -36,7 +43,6 @@ fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
         backgroundColor = color
     )
 }
-
 
 @Composable
 fun HomePageContent(adoptionsLiveData: LiveData<List<Adoption>>) {
@@ -50,10 +56,9 @@ fun HomePageContent(adoptionsLiveData: LiveData<List<Adoption>>) {
 }
 
 @Composable
-fun SyncAdoptionList(adoptionList: List<Adoption>){
+fun SyncAdoptionList(adoptionList: List<Adoption>) {
     LazyColumn {
-        items(adoptionList){
-                adoption ->
+        items(adoptionList) { adoption ->
             Card(
                 shape = RoundedCornerShape(3.dp),
                 backgroundColor = Color.White,
@@ -61,7 +66,7 @@ fun SyncAdoptionList(adoptionList: List<Adoption>){
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
-               AdoptionCard(adoption = adoption)
+                AdoptionCard(adoption = adoption)
             }
         }
     }
@@ -78,19 +83,18 @@ fun LoadingProgressBar() {
     }
 }
 
-
-//@Preview("Light Theme", widthDp = 360, heightDp = 640)
-//@Composable
-//fun LightPreview() {
+// @Preview("Light Theme", widthDp = 360, heightDp = 640)
+// @Composable
+// fun LightPreview() {
 //    MyTheme {
 //        MyApp(viewModel.adoptions)
 //    }
-//}
+// }
 //
-//@Preview("Dark Theme", widthDp = 360, heightDp = 640)
-//@Composable
-//fun DarkPreview() {
+// @Preview("Dark Theme", widthDp = 360, heightDp = 640)
+// @Composable
+// fun DarkPreview() {
 //    MyTheme(darkTheme = true) {
 //        MyApp(viewModel.adoptions)
 //    }
-//}
+// }

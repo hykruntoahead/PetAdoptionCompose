@@ -45,21 +45,21 @@ fun MyApp(personListLiveData: LiveData<List<Adoption>>) {
 //    Surface(color = MaterialTheme.colors.background) {
 //        Text(text = "Ready... Set... GO!")
 //    }
-    HomePage(color = MaterialTheme.colors.background,personListLiveData)
+    HomePage(color = MaterialTheme.colors.background, personListLiveData)
 }
 
-//@Preview("Light Theme", widthDp = 360, heightDp = 640)
-//@Composable
-//fun LightPreview() {
+// @Preview("Light Theme", widthDp = 360, heightDp = 640)
+// @Composable
+// fun LightPreview() {
 //    MyTheme {
 //        MyApp(viewModel.adoptions)
 //    }
-//}
+// }
 //
-//@Preview("Dark Theme", widthDp = 360, heightDp = 640)
-//@Composable
-//fun DarkPreview() {
+// @Preview("Dark Theme", widthDp = 360, heightDp = 640)
+// @Composable
+// fun DarkPreview() {
 //    MyTheme(darkTheme = true) {
 //        MyApp(viewModel.adoptions)
 //    }
-//}
+// }

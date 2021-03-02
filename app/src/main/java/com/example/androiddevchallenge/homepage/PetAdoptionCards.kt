@@ -1,6 +1,10 @@
 package com.example.androiddevchallenge.homepage
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,23 +16,22 @@ import com.example.androiddevchallenge.data.Adoption
 import com.example.androiddevchallenge.image.DisplayRemoteImageByGlide
 
 @Composable
-fun PetTitle(pet: Adoption){
-    Text(pet.title,style = MaterialTheme.typography.h6)
+fun PetTitle(pet: Adoption) {
+    Text(pet.title, style = MaterialTheme.typography.h6)
 }
 
 @Composable
-fun PetAuthor(pet: Adoption){
-    Text(pet.author,style = MaterialTheme.typography.subtitle2,color = Color.Gray)
+fun PetAuthor(pet: Adoption) {
+    Text(pet.author, style = MaterialTheme.typography.subtitle2, color = Color.Gray)
 }
 
 @Composable
-fun PetDesc(pet: Adoption){
-    Text(text = pet.desc,style = MaterialTheme.typography.body2,
-         maxLines = 3,overflow = TextOverflow.Ellipsis )
+fun PetDesc(pet: Adoption) {
+    Text(text = pet.desc, style = MaterialTheme.typography.body2, maxLines = 3, overflow = TextOverflow.Ellipsis)
 }
 
 @Composable
-fun PetImage(pet: Adoption,modifier :Modifier = Modifier){
+fun PetImage(pet: Adoption, modifier: Modifier = Modifier) {
     pet.pictureUrl?.let {
         DisplayRemoteImageByGlide(
             imageUrl = it,
@@ -38,7 +41,7 @@ fun PetImage(pet: Adoption,modifier :Modifier = Modifier){
 }
 
 @Composable
-fun AdoptionCard(adoption: Adoption){
+fun AdoptionCard(adoption: Adoption) {
     Row(
         Modifier
             .padding(8.dp)) {
@@ -56,5 +59,3 @@ fun AdoptionCard(adoption: Adoption){
         }
     }
 }
-
-

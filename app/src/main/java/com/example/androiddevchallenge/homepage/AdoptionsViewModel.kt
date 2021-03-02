@@ -1,6 +1,5 @@
 package com.example.androiddevchallenge.homepage
 
-
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -9,8 +8,8 @@ import com.example.androiddevchallenge.data.getAdoptionList
 import kotlinx.coroutines.delay
 
 class AdoptionsViewModel : ViewModel() {
-    val adoptions : LiveData<List<Adoption>> = liveData {
-        val adoptions = loadAdoptions();
+    val adoptions: LiveData<List<Adoption>> = liveData {
+        val adoptions = loadAdoptions()
         emit(adoptions)
     }
 
