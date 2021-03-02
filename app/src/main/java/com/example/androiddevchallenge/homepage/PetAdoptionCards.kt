@@ -1,7 +1,5 @@
 package com.example.androiddevchallenge.homepage
 
-import android.util.Log
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -12,8 +10,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.Adoption
 import com.example.androiddevchallenge.image.DisplayRemoteImageByGlide
-
-private const val TAG = "PetAdoptionCards"
 
 @Composable
 fun PetTitle(pet: Adoption){

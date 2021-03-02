@@ -1,11 +1,9 @@
 package com.example.androiddevchallenge.homepage
 
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -21,7 +19,6 @@ import androidx.lifecycle.LiveData
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Adoption
 
-private const val TAG = "HomePage"
 
 @Composable
 fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
@@ -45,7 +42,6 @@ fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
 fun HomePageContent(adoptionsLiveData: LiveData<List<Adoption>>) {
 
     val adoptionList = adoptionsLiveData.observeAsState(initial = emptyList()).value
-    Log.d(TAG, "HomePageContent: adoptionList=$adoptionList")
     if (adoptionList.isEmpty()) {
         LoadingProgressBar()
     } else {
