@@ -15,6 +15,9 @@
  */
 package com.example.androiddevchallenge.homepage
 
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
@@ -28,6 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.Adoption
+import com.example.androiddevchallenge.detail.DetailActivity
 import com.example.androiddevchallenge.image.DisplayRemoteImageByGlide
 
 @Composable
@@ -56,10 +60,18 @@ fun PetImage(pet: Adoption, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun AdoptionCard(adoption: Adoption) {
+fun AdoptionCard(activity: AppCompatActivity, adoption: Adoption) {
     Row(
         Modifier
             .padding(8.dp)
+            .clickable(
+                onClick = {
+                    val intent = Intent(activity, DetailActivity::class.java)
+                    intent.putExtra("title", adoption.title)
+                    intent.putExtra("detailNumber", adoption.detailNumber)
+                    activity.startActivity(intent)
+                }
+            )
     ) {
         PetImage(
             pet = adoption,

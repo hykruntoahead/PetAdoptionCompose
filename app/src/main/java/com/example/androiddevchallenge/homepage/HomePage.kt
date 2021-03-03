@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.homepage
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -43,7 +44,7 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Adoption
 
 @Composable
-fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
+fun HomePage(activity: AppCompatActivity, color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
     Scaffold(
         modifier = Modifier.semantics { testTag = "HomePage" },
         topBar = {
@@ -53,25 +54,25 @@ fun HomePage(color: Color, adoptionsLiveData: LiveData<List<Adoption>>) {
             )
         },
         content = {
-            HomePageContent(adoptionsLiveData)
+            HomePageContent(activity, adoptionsLiveData)
         },
         backgroundColor = color
     )
 }
 
 @Composable
-fun HomePageContent(adoptionsLiveData: LiveData<List<Adoption>>) {
+fun HomePageContent(activity: AppCompatActivity, adoptionsLiveData: LiveData<List<Adoption>>) {
 
     val adoptionList = adoptionsLiveData.observeAsState(initial = emptyList()).value
     if (adoptionList.isEmpty()) {
         LoadingProgressBar()
     } else {
-        SyncAdoptionList(adoptionList)
+        SyncAdoptionList(activity, adoptionList)
     }
 }
 
 @Composable
-fun SyncAdoptionList(adoptionList: List<Adoption>) {
+fun SyncAdoptionList(activity: AppCompatActivity, adoptionList: List<Adoption>) {
     LazyColumn {
         items(adoptionList) { adoption ->
             Card(
@@ -81,7 +82,7 @@ fun SyncAdoptionList(adoptionList: List<Adoption>) {
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
-                AdoptionCard(adoption = adoption)
+                AdoptionCard(activity, adoption = adoption)
             }
         }
     }

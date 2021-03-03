@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this).get(AdoptionsViewModel::class.java)
         setContent {
             MyTheme {
-                MyApp(viewModel.adoptions)
+                MyApp(this, viewModel.adoptions)
             }
         }
     }
@@ -41,11 +41,11 @@ class MainActivity : AppCompatActivity() {
 
 // Start building your app here!
 @Composable
-fun MyApp(personListLiveData: LiveData<List<Adoption>>) {
+fun MyApp(activity: AppCompatActivity, personListLiveData: LiveData<List<Adoption>>) {
 //    Surface(color = MaterialTheme.colors.background) {
 //        Text(text = "Ready... Set... GO!")
 //    }
-    HomePage(color = MaterialTheme.colors.background, personListLiveData)
+    HomePage(activity, color = MaterialTheme.colors.background, personListLiveData)
 }
 
 // @Preview("Light Theme", widthDp = 360, heightDp = 640)
