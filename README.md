@@ -14,7 +14,9 @@
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-
+- ViewModel LiveData
+- Use Glide to load web pictures
+- Use Material Components
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
